@@ -6,10 +6,17 @@ import whiteStickerRounded from "D:/DylansCloud/Classes/2018_Winter_Semester/CIS
 import yellowStickerRounded from "D:/DylansCloud/Classes/2018_Winter_Semester/CIS_367/Project_2/app/images/yellow_sticker_rounded.jpg";
 import orangeStickerRounded from "D:/DylansCloud/Classes/2018_Winter_Semester/CIS_367/Project_2/app/images/orange_sticker_rounded.jpg";
 
+import redStickerNormalRounded from "D:/DylansCloud/Classes/2018_Winter_Semester/CIS_367/Project_2/app/images/red_sticker_normal_rounded.jpg";
+import greenStickerNormalRounded from "D:/DylansCloud/Classes/2018_Winter_Semester/CIS_367/Project_2/app/images/green_sticker_normal_rounded.jpg";
+import blueStickerNormalRounded from "D:/DylansCloud/Classes/2018_Winter_Semester/CIS_367/Project_2/app/images/blue_sticker_normal_rounded.jpg";
+import whiteStickerNormalRounded from "D:/DylansCloud/Classes/2018_Winter_Semester/CIS_367/Project_2/app/images/white_sticker_normal_rounded.jpg";
+import yellowStickerNormalRounded from "D:/DylansCloud/Classes/2018_Winter_Semester/CIS_367/Project_2/app/images/yellow_sticker_normal_rounded.jpg";
+import orangeStickerNormalRounded from "D:/DylansCloud/Classes/2018_Winter_Semester/CIS_367/Project_2/app/images/orange_sticker_normal_rounded.jpg";
+
 
 
 export default class RubiksCube extends THREE.Group{
-	constructor(){
+	constructor(normalCube){
 
 		super();
 
@@ -39,19 +46,33 @@ export default class RubiksCube extends THREE.Group{
 		const cubeGeo = new THREE.BoxGeometry(1, 1, 1);
 	    const cubeMat = new THREE.MeshBasicMaterial({color: 0x000000});
 
-	    // const redImg = THREE.ImageUtils.loadTexture("/images/red_sticker_normal_rounded.jpg");
-	    // const greenImg = THREE.ImageUtils.loadTexture("/images/green_sticker_normal_rounded.jpg");
-	    // const blueImg = THREE.ImageUtils.loadTexture("/images/blue_sticker_normal_rounded.jpg");
-	    // const whiteImg = THREE.ImageUtils.loadTexture("/images/white_sticker_normal_rounded.jpg");
-	    // const yellowImg = THREE.ImageUtils.loadTexture("/images/yellow_sticker_normal_rounded.jpg");
-	    // const orangeImg = THREE.ImageUtils.loadTexture("/images/orange_sticker_normal_rounded.jpg");
+	    var redImg;
+	    var greenImg;
+	    var blueImg;
+	    var  whiteImg;
+	   	var yellowImg;
+	    var orangeImg;
 
-	    const redImg = THREE.ImageUtils.loadTexture(redStickerRounded);
-	    const greenImg = THREE.ImageUtils.loadTexture(greenStickerRounded);
-	    const blueImg = THREE.ImageUtils.loadTexture(blueStickerRounded);
-	    const whiteImg = THREE.ImageUtils.loadTexture(whiteStickerRounded);
-	    const yellowImg = THREE.ImageUtils.loadTexture(yellowStickerRounded);
-	    const orangeImg = THREE.ImageUtils.loadTexture(orangeStickerRounded);
+
+	    if(normalCube){
+	    	redImg = THREE.ImageUtils.loadTexture(redStickerNormalRounded);
+		    greenImg = THREE.ImageUtils.loadTexture(greenStickerNormalRounded);
+		    blueImg = THREE.ImageUtils.loadTexture(blueStickerNormalRounded);
+		    whiteImg = THREE.ImageUtils.loadTexture(whiteStickerNormalRounded);
+		    yellowImg = THREE.ImageUtils.loadTexture(yellowStickerNormalRounded);
+		    orangeImg = THREE.ImageUtils.loadTexture(orangeStickerNormalRounded);
+	    }
+	    else{
+	    	redImg = THREE.ImageUtils.loadTexture(redStickerRounded);
+		    greenImg = THREE.ImageUtils.loadTexture(greenStickerRounded);
+		    blueImg = THREE.ImageUtils.loadTexture(blueStickerRounded);
+		    whiteImg = THREE.ImageUtils.loadTexture(whiteStickerRounded);
+		    yellowImg = THREE.ImageUtils.loadTexture(yellowStickerRounded);
+		    orangeImg = THREE.ImageUtils.loadTexture(orangeStickerRounded);
+	    }
+
+
+	    
 
 
 	    // const redImg = THREE.ImageUtils.loadTexture("/images/red_sticker.jpg");

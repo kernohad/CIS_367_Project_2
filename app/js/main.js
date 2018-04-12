@@ -17,9 +17,11 @@ export default class App {
 	    this.animCube = true;
 	    this.rotateCube = true;
 	    this.moveCam = false;
+	    this.normalCube = false;
 	    const c = document.getElementById('mycanvas');
 	    this.spotLightToggle = document.getElementById('spotLightToggle');
 	    this.lightOneToggle = document.getElementById('lightOneToggle');
+	    this.spawnCubeToggle = document.getElementById('spawnCubeToggle');
 	    // Enable antialias for smoother lines
 	    this.renderer = new THREE.WebGLRenderer({canvas: c, antialias: true});
 	    // Turn on shadows
@@ -107,7 +109,8 @@ export default class App {
 	    /**********************
 	    * Rubiks Cube
 	    **********************/
-	    this.rubiksCube = new RubiksCube();
+	    this.rubiksCube = new RubiksCube(false);
+	    this.spawnCubeToggle.addEventListener( 'change', () => this.spawnCubetHandler());
 	    this.scene.add(this.rubiksCube);
 	    //this.rubiksCube.layer.matrixAutoUpdate = false;
 	    //this.rubiksCube.matrixAutoUpdate = false;
@@ -214,6 +217,26 @@ export default class App {
 	    window.addEventListener('resize', () => this.resizeHandler());
 	    this.resizeHandler();
 	    requestAnimationFrame(() => this.render());
+ 	}
+
+ 	spawnCubetHandler(){
+ 		this.animCube = false;
+ 		if(this.spawnCubeToggle.checked){
+ 			this.scene.remove(this.rubiksCube);
+ 			this.rubiksCube = new RubiksCube(true);
+ 		}
+ 		else{
+ 			this.scene.remove(this.rubiksCube);
+ 			this.rubiksCube = new RubiksCube(false);
+ 		}
+ 		this.scene.add(this.rubiksCube);
+ 		this.rubiksCube.translateY(4);
+ 		this.counter = 0;
+	    this.phase = 1;
+	    this.cycle = 0;
+ 		this.animCube = true;
+
+
  	}
 
  	cubeAnimHandler(){
