@@ -1,0 +1,190 @@
+<html>
+
+<head>
+  <title>
+    WebGL Three.js Starter
+  </title>
+</head>
+<style>
+  html {
+    height: 100%;
+  }
+  body {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  #container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background: lemonchiffon;
+  }
+  canvas {
+    width: 100%;
+    height: 100%;
+  }
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 17px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 13px;
+  width: 13px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(13px);
+  -ms-transform: translateX(13px);
+  transform: translateX(13px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 17px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 0px;
+ ;
+}
+
+.item1 {
+  grid-column-start: 1;
+  grid-column-end: 1;
+}
+
+.item2 {
+  grid-column-start: 2;
+  grid-column-end: 2;
+}
+
+
+</style>
+
+<body>
+	<h1>
+		Dylan Kernohan: Project 2
+	</h1>
+	<div class="grid-container">
+
+		<div class="item1" ">
+	  		<h4>
+	  			Keyboard Controls: (Select Object)
+	  		</h4>
+
+	        <ul>
+	            <li>'w' - Translate-Z Negative (Away).</li>
+	            <li>'s' - Translate-Z Positive (Toward).</li>
+	            <li>'a' - Translate-X Negative</li>
+	            <li>'d' - Translate-X Positifve.</li>
+	            <li>'q' - Rotate-Y Positive</li>
+	            <li>'e' - Rotate-Y Negative</li>
+	            <li>'r' - Rotate-X Positive</li>
+	            <li>'f' - Rotate-X Negative</li>
+	            <li>'z' - Rotate-X Positive</li>
+	            <li>'c' - Rotate-X Negative</li>
+	            <li>Space - Translate-Y Positifve.</li>
+	            <li>Shift - Translate-Y Negative.</li>
+	        </ul>
+
+	    </div>
+		<div class="item2" ">
+		  	
+		  	<h4>
+		  		Animation Controls: (Rubik's Cube)
+		  	</h4>
+		  	<ul>
+		        <li>'p' - Start / Pause.</li>
+		        <li>Note: When cube is selected to move, entire cube spinning annimation will stop.</li>
+		    </ul>
+	    
+		  	<h4>
+		  		Mouse Controls: (Camera)
+		  	</h4>
+		  	<ul>
+		        <li>Left Click - Rotate.</li>
+		        <li>Scroll Wheel - Zoom.</li>
+		        <li>Right Click - Pan.</li>
+		    </ul>
+	  	</div>
+	  	
+	</div>
+  	<div style="border-top-style: solid; padding-top: 20px">
+  		<text>
+  			Select an Object to move:
+  		</text>
+	  	<select id="menu" style="margin: 10px" value="-1">
+	  		<option value="-1">----------</option>
+	        <option value="0">Spot Light</option>
+	        <option value="1">Directional Light</option>
+	        <option value="2">Rubik's Cube</option>
+	        <option value="3">Falcon Heavy</option>
+	        <option value="3">Camera</option>
+	    </select>
+	    <text>
+  			Note: Then click off box in white space.
+  		</text>
+  		
+		<text style="margin-left: 30px">Spot Light</text>
+		<label class="switch" style="margin-left: 10px" >
+		  <input id="spotLightToggle" type="checkbox" checked>
+		  <span class="slider round"></span>
+		</label>
+		<text style="margin-left: 30px">Directional Light</text>
+		<label class="switch" style="margin-left: 10px" >
+		  <input id="lightOneToggle" type="checkbox" checked>
+		  <span class="slider round"></span>
+		</label>
+  		
+  		
+  	</div>
+  	<div id="container">
+    	<canvas id="mycanvas"></canvas>
+  	</div>
+<script type="text/javascript" src="bundle.js"></script></body>
+
+</html>
